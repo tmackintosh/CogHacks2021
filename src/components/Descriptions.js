@@ -36,10 +36,10 @@ function Description_Page() {
                     <label>Bristol</label><br/>
                 </div>
                 <div class="whiteRow">
-                    <label>Competitive salary</label><br/>
+                    <label>£50,000 - £85,000</label><br/>
                 </div>
                 <div class="greyRow">
-                    <label>Permanent, 40 hours/week</label>
+                    <label>Permanent</label>
                 </div>
                 <div class="whiteRow">
                     <label><b>Job Description</b></label><br/>

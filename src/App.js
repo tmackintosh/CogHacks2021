@@ -3,6 +3,7 @@ import {BrowserRouter as Router, Routes, Route} from 'react-router-dom';
 import Login_page from './components/pages/Login_page';
 import Questions_Page from './components/pages/Questions_Page';
 import Description_Page from './components/pages/Description_Page';
+import ShowEmployer_Page from './components/pages/ShowEmployer_Page';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
             <Route path='/login' exact element={<Login_page/>}/>
             <Route path='/questions' exact element={<Questions_Page/>}/>
             <Route path='/descriptions' exact element={<Description_Page/>}/>
+            <Route path='/showemployer' exact element={<ShowEmployer_Page/>}/>
         </Routes>
       </Router>
     </>
