@@ -1,9 +1,43 @@
-body {
-    background-color: white;
-  }
-  h1 {
-    color: blue;
-  }
-  p {
-    color: red;
-  }
+.container {
+    text-align:center;
+    font-family: sans-serif;
+    position:absolute;
+    top:25%;
+    left:50%;
+    transform:translate(-50%, -30%)
+}
+
+.questionBox {
+    border-style:ridge;
+    margin-top:20px;
+    margin-bottom:50px;
+    background-color: rgb(230, 230, 230);
+}
+
+label{
+    display:inline-flex;
+    width:250px;
+    text-align:right;
+}
+
+input {
+    margin: 10px;
+}
+
+img {
+    height: 40%;
+    width: 40%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.button {
+    padding:10px;
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
+}

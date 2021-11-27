@@ -42,13 +42,24 @@ function Questions() {
         return "Next Question";
     }
 
+    const getProgress = () => {
+
+        return ((currentIndex+1)*20).toString();
+    }
+
     
     return (
 
         <div class="container">
-            <h1>Insert Logo Here</h1>
-            <progress id="progress_bar" value="0" max="100"></progress>
-            <h3>{currentIndex+1}/5</h3>
+            <img src="https://cognisess.com/wp-content/uploads/2021/07/189.png"/>
+        
+        <div class="progressBox">
+                <progress id="progress_bar" value={getProgress()} max="100"></progress>
+                <h3>{currentIndex+1}/5</h3>
+        </div>
+            
+        <div class="questionBox">
+            <h3>You will..</h3>
             <h2>{questions[currentIndex]}</h2>
             <form method="post">
                 <input id="ans_1" input type="radio" name="carrier" value="ans_one" /> Strongly Agree
@@ -58,7 +69,10 @@ function Questions() {
                 <input id="ans_5" input type="radio" name="carrier" value="ans_five" /> Strongly Disagree
             </form>
             <button type ="button" onClick={() => showLastQuestion()}>{getPreviousButtonText()}</button>
+            <div class="divider"/>
             <button type ="button" onClick={() => showNextQuestion()}>{getNextButtonText()}</button>
+        </div>
+            
         </div>
     )
 }
