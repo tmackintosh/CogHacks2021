@@ -1,3 +1,11 @@
+html, container {
+    position:absolute;
+    top:0;
+    bottom:0;
+    left:0;
+    right:0;
+}
+
 .container {
     text-align:center;
     font-family: sans-serif;
@@ -8,10 +16,19 @@
 }
 
 .listing {
-    border-style:ridge;
-    margin-top:20px;
-    margin-bottom:50px;
-    background-color: rgb(230, 230, 230);
+    padding-top: 2vw;
+    width: 60vw;
+    height: 25vw;
+    margin-top:5vw;
+    margin-bottom:5vw;
+    background-color: #fcfcf7;
+    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+}
+
+
+
+h1 {
+    font-family: sans-serif;
 }
 
 label{
