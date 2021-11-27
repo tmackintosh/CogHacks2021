@@ -10,75 +10,87 @@ import { useState } from 'react';
 
 function Login() {
 
-// Your web app's Firebase configuration
-const firebaseConfig = {
-  apiKey: "AIzaSyA1o5seIhKEY17K8dRy0KKV62jryaor4aE",
-  authDomain: "coghacks2021.firebaseapp.com",
-  projectId: "coghacks2021",
-  storageBucket: "coghacks2021.appspot.com",
-  messagingSenderId: "272991366590",
-  appId: "1:272991366590:web:bb1a94953685be2bb39def"
-};
+    // Your web app's Firebase configuration
+    const firebaseConfig = {
+    apiKey: "AIzaSyA1o5seIhKEY17K8dRy0KKV62jryaor4aE",
+    authDomain: "coghacks2021.firebaseapp.com",
+    projectId: "coghacks2021",
+    storageBucket: "coghacks2021.appspot.com",
+    messagingSenderId: "272991366590",
+    appId: "1:272991366590:web:bb1a94953685be2bb39def"
+    };
 
-// Initialize Firebase
-//const app = 
-initializeApp(firebaseConfig);
+    // Initialize Firebase
+    //const app = 
+    initializeApp(firebaseConfig);
 
-const [password, setPassword] = useState('');
-const [email, setEmail] = useState('');
-const [signingUp, setSigningUp] = useState(false);
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
 
-const handlePasswordInput = event => {
-    setPassword(event.target.value);
-}
+    const [password2, setPassword2] = useState('');
+    const [email2, setEmail2] = useState('');
 
-const handleEmailInput = event => {
-    setEmail(event.target.value);
-}
+    const [signingUp, setSigningUp] = useState(false);
 
-const pressedSignUp = event => {
-    //setSigningUp(true);
-    signUp();
-}
+    const handlePasswordInput = event => {
+        setPassword(event.target.value);
+    }
 
-const signUp = () => {
-    //pressedSignUp();
-    const auth = getAuth();
-    //if (signingUp === true) {
-        createUserWithEmailAndPassword(auth, email, password)
-        .then((userCredential) => {
-            // Signed in 
-            const user = userCredential.user;
-            // ...
-            alert("Signed In")
-        })
-        .catch((error) => {
-            const errorCode = error.code;
-            const errorMessage = error.message;
-            //alert(errorMessage + password)
-            // ..
-        
-        });
-    //}   
-}
+    const handleEmailInput = event => {
+        setEmail(event.target.value);
+    }
 
-const signIn = () => {
+    const handleEmailInput2 = event => {
+        setEmail2(event.target.value);
+    }
 
-    const auth = getAuth();
-signInWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    alert("Signed in: Signed in")
-    // ...
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert("Sign in: " + errorMessage)
-  });
+    const handlePassword2 = event => {
+        setPassword2(event.target.value);
+    }
 
-}
+    const pressedSignUp = event => {
+        //setSigningUp(true);
+        signUp();
+    }
+
+    const signUp = () => {
+        //pressedSignUp();
+        const auth = getAuth();
+        //if (signingUp === true) {
+            createUserWithEmailAndPassword(auth, email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                // ...
+                alert("Signed In")
+            })
+            .catch((error) => {
+                const errorCode = error.code;
+                const errorMessage = error.message;
+                //alert(errorMessage + password)
+                // ..
+            
+            });
+        //}   
+    }
+
+    const signIn = () => {
+
+        const auth = getAuth();
+    signInWithEmailAndPassword(auth, email2, password2)
+    .then((userCredential) => {
+        // Signed in 
+        const user = userCredential.user;
+        alert("Signed in: Signed in")
+        // ...
+    })
+    .catch((error) => {
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert("Sign in: " + errorMessage)
+    });
+
+    }
     
     
     return (
@@ -92,7 +104,7 @@ signInWithEmailAndPassword(auth, email, password)
                     <label class="row">Name:</label><input></input><br/>
                 </div>
 
-                <label>Email Address:</label><input id="email" onChange={handleEmailInput}></input><br/>
+                <label>Email Address:</label><input id="email" value={email} onChange={handleEmailInput}></input><br/>
                 
                 <div class="row">
                     <label>Password:</label>
@@ -111,7 +123,7 @@ signInWithEmailAndPassword(auth, email, password)
                 </div>
 
                 <div class="button">
-                    <button onClick={pressedSignUp()}>Sign Up</button>
+                    <button onClick={pressedSignUp}>Sign Up</button>
                 </div>
 
                 {/* </form> */}
@@ -122,14 +134,14 @@ signInWithEmailAndPassword(auth, email, password)
             <div class="signupboxes">
                 <h1><i>log in</i></h1>
 
-                <label>Email Address:</label><input></input><br/>
+                <label>Email Address:</label><input onChange={handleEmailInput2}></input><br/>
 
                 <div class="row">
-                    <label>Password:</label><input></input><br/>
+                    <label>Password:</label><input onChange={handlePassword2}></input><br/>
                 </div>
 
                 <div class="button">
-                    <button onClick={signIn()}>Log In</button>
+                    <button onClick={signIn}>Log In</button>
                 </div>
             </div>
         </div>
