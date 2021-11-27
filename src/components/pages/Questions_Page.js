@@ -1,14 +1,14 @@
 import React from "react";
-import Login from "../Login";
+import Questions from "../Questions";
 
-function Login_page() {
+function Questions_Page() {
 
     return (
         <>
-            <Login/>
+            <Questions/>
         </>
     )
 
 }
 
-export default Login_page;
+export default Questions_Page;
