@@ -9,7 +9,7 @@ import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
 // import { set } from "firebase/firestore";
 import { doc, setDoc} from "firebase/firestore"; 
-import { getFirestore } from "firebase/firestore"
+import { getFirestore } from "firebase/firestore";
 //import firestore from 'firebase';
 // import firebase from 'firebase';
 
@@ -86,7 +86,7 @@ function Login() {
                 // Signed in 
                 const user = userCredential.user;
                 // ...
-                alert("Signed In")
+                //alert("Signed In")
 
                  setDoc(doc(getFirestore(), "users", user.uid), {
                      name: name,
@@ -103,7 +103,7 @@ function Login() {
                 // getFirestore().collection('cities').doc('BJ').set({
                 //     capital: "TESt"
                 //    })
-                  alert("Did this run?")
+                  //alert("Did this run?")
 
             })
             .catch((error) => {
@@ -123,14 +123,14 @@ function Login() {
     .then((userCredential) => {
         // Signed in 
         const user = userCredential.user;
-        alert("Signed in: Signed in")
+       // alert("Signed in: Signed in")
         nextPage();
         // ...
     })
     .catch((error) => {
         const errorCode = error.code;
         const errorMessage = error.message;
-        alert("Sign in: " + errorMessage)
+       // alert("Sign in: " + errorMessage)
     });
 
     }
