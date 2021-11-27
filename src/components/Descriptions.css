@@ -1,9 +1,29 @@
 .container {
+    border-style:ridge;
     text-align:center;
     font-family: sans-serif;
-    writing-mode: vertical;
     position:absolute;
     top:25%;
     left:50%;
     transform:translate(-50%, -30%)
+}
+
+.row {
+    background-color: rgb(230, 230, 230);
+}
+
+.button {
+    padding:10px;
+}
+
+.signupboxes {
+    border-style:ridge;
+    margin-top:10px;
+    margin-bottom:50px;
+}
+
+.divider{
+    width:5px;
+    height:auto;
+    display:inline-block;
 }
