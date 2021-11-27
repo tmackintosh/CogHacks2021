@@ -24,23 +24,41 @@ const firebaseConfig = {
 initializeApp(firebaseConfig);
 
 const [password, setPassword] = useState('');
+const [email, setEmail] = useState('');
+const [signingUp, setSigningUp] = useState(false);
 
+const handlePasswordInput = event => {
+    setPassword(event.target.value);
+}
 
-const signUp = (email, password) => {
-const auth = getAuth();
-createUserWithEmailAndPassword(auth, email, password)
-  .then((userCredential) => {
-    // Signed in 
-    const user = userCredential.user;
-    // ...
-    alert("Signed In")
-  })
-  .catch((error) => {
-    const errorCode = error.code;
-    const errorMessage = error.message;
-    alert(errorMessage)
-    // ..
-  });
+const handleEmailInput = event => {
+    setEmail(event.target.value);
+}
+
+const pressedSignUp = event => {
+    //setSigningUp(true);
+    signUp();
+}
+
+const signUp = () => {
+    //pressedSignUp();
+    const auth = getAuth();
+    //if (signingUp === true) {
+        createUserWithEmailAndPassword(auth, email, password)
+        .then((userCredential) => {
+            // Signed in 
+            const user = userCredential.user;
+            // ...
+            alert("Signed In")
+        })
+        .catch((error) => {
+            const errorCode = error.code;
+            const errorMessage = error.message;
+            alert(errorMessage + password)
+            // ..
+        
+        });
+    //}   
 }
     
     
@@ -55,12 +73,12 @@ createUserWithEmailAndPassword(auth, email, password)
                     <label class="row">Name:</label><input></input><br/>
                 </div>
 
-                <label>Email Address:</label><input></input><br/>
+                <label>Email Address:</label><input id="email" onChange={handleEmailInput}></input><br/>
                 
                 <div class="row">
                     <label>Password:</label>
                     <input  
-                    type={password}
+                    type={password} id="password" onChange={handlePasswordInput}
                     // onChange={e => setPassword(e.detail.value)}
                     >
                     </input> 
@@ -74,7 +92,7 @@ createUserWithEmailAndPassword(auth, email, password)
                 </div>
 
                 <div class="button">
-                    <button onClick={signUp("Testemail@gmail.com", "password")}>Sign Up</button>
+                    <button onClick={pressedSignUp()}>Sign Up</button>
                 </div>
 
                 {/* </form> */}
