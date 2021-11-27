@@ -124,6 +124,7 @@ function Login() {
         // Signed in 
         const user = userCredential.user;
         alert("Signed in: Signed in")
+        nextPage();
         // ...
     })
     .catch((error) => {
@@ -137,7 +138,6 @@ function Login() {
     
     return (
         <div class="container">
-<<<<<<< HEAD
             <img src="https://cognisess.com/wp-content/uploads/2021/07/189.png"/>
             <div class="signupboxes">
                 <h1><i>sign up</i></h1>
@@ -150,12 +150,6 @@ function Login() {
                     onChange={handleNameInput}
                     ></input><br/>
                 </div>
-=======
-        <img src="https://cognisess.com/wp-content/uploads/2021/07/189.png"/>
-
-        <div class="signupboxes">
-            <h1><i>sign up</i></h1>
->>>>>>> 71c710038cf07ac33882c80f6322cdd8d02e7b90
 
                 <label>Email Address:</label>
                 <input id="email" value={email} onChange={handleEmailInput}></input><br/>
@@ -176,7 +170,6 @@ function Login() {
                 onChange = {handlePostcodeInput}
                 ></input><br/>
 
-<<<<<<< HEAD
                 <div class="row">
                     <label>Highest level of education:</label>
                     <input
@@ -184,11 +177,6 @@ function Login() {
                     onChange = {handleEduInput}
                     ></input>
                 </div>
-=======
-            <div class="row">
-                <label>Password:</label><input type="password"></input><br/>
-            </div>
->>>>>>> 71c710038cf07ac33882c80f6322cdd8d02e7b90
 
                 <div class="button">
                     <button onClick={pressedSignUp}>Sign Up</button>
@@ -204,15 +192,9 @@ function Login() {
 
                 <label>Email Address:</label><input onChange={handleEmailInput2}></input><br/>
 
-<<<<<<< HEAD
                 <div class="row">
                     <label>Password:</label><input onChange={handlePassword2}></input><br/>
                 </div>
-=======
-            <div class="row">
-                <label>Password:</label><input type="password"></input><br/>
-            </div>
->>>>>>> 71c710038cf07ac33882c80f6322cdd8d02e7b90
 
                 <div class="button">
                     <button onClick={signIn}>Log In</button>
