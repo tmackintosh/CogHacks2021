@@ -1,11 +1,10 @@
 import React, { useState } from 'react';
 import "./Questions.css";
+import RadioButton from "./RadioButton";
 
 function Questions() {
 
     const [currentIndex, setCurrentIndex] = useState(0);
-    const [isChecked, setIsChecked] = useState(false);
-
 
     const questions = [
         "Work hands-on with objects, machines, tools, plants, or animals; Work and play outside; Use your physical or athletic abilities",
@@ -20,14 +19,6 @@ function Questions() {
             return;
         }
         setCurrentIndex(currentIndex-1)
-        clearRadioButtons();
-    }
-
-    const clearRadioButtons = () => {
-        for (var i = 0; i < 5; i++) {
-            const element = document.getElementById("ans_" + i.toString());
-            // set checked of this element to false
-        }
     }
     
     const showNextQuestion = () => {
@@ -35,7 +26,6 @@ function Questions() {
             return;
         }
         setCurrentIndex(currentIndex+1)
-        clearRadioButtons();
     }
 
     const getPreviousButtonText = () => {
@@ -70,13 +60,7 @@ function Questions() {
         <div class="questionBox">
             <h3>You will..</h3>
             <h2>{questions[currentIndex]}</h2>
-            <form method="post">
-                <input id="ans_1" input type="radio" name="carrier" value="ans_one" /> Strongly Agree
-                <input id="ans_2" input type="radio" name="carrier" value="ans_two" /> Agree
-                <input id="ans_3" input type="radio" name="carrier" value="ans_three" /> Neutral
-                <input id="ans_4" input type="radio" name="carrier" value="ans_four" /> Disagree
-                <input id="ans_5" input type="radio" name="carrier" value="ans_five" /> Strongly Disagree
-            </form>
+            <RadioButton/>
             <button type ="button" onClick={() => showLastQuestion()}>{getPreviousButtonText()}</button>
             <div class="divider"/>
             <button type ="button" onClick={() => showNextQuestion()}>{getNextButtonText()}</button>
