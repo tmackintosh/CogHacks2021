@@ -1,34 +1,48 @@
-html, container {
-    position:absolute;
-    top:0;
-    bottom:0;
-    left:0;
-    right:0;
+body {
+    background-color: #fafafa;
 }
 
 .container {
+    background-color: #fafafa;
     text-align:center;
     font-family: sans-serif;
     position:absolute;
-    top:25%;
-    left:50%;
-    transform:translate(-50%, -30%)
+    top:25vw;
+    left:50vw;
+    transform:translate(-50%, -22vw);
 }
 
 .listing {
     padding-top: 2vw;
-    width: 60vw;
-    height: 25vw;
+    width: 70vw;
+    height: 20vw;
     margin-top:5vw;
     margin-bottom:5vw;
-    background-color: #fcfcf7;
-    box-shadow: rgba(50, 50, 93, 0.25) 0px 2px 5px -1px, rgba(0, 0, 0, 0.3) 0px 1px 3px -1px;
+    background-color: #e8f7fa;
+    border-radius: 2vw;
+    box-shadow: rgba(17, 17, 26, 0.1) 0px 1px 0px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 48px;
 }
 
 
-
 h1 {
+    font-size: 5vw;
     font-family: sans-serif;
+}
+
+.subtitle{
+    font-size: 2vw;
+    font-family: sans-serif;
+}
+
+h2{
+    text-align: left;
+    padding-left: 2vw;
+}
+
+h3
+{
+    text-align: left;
+    padding-left: 2vw;
 }
 
 label{
