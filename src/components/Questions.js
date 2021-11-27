@@ -24,6 +24,8 @@ function Questions() {
     
     const showNextQuestion = () => {
         if (currentIndex === 4) {
+            confirmAnswer();
+
             return;
         }
         setCurrentIndex(currentIndex+1);
@@ -49,6 +51,7 @@ function Questions() {
 
     const confirmAnswer = () => {
         /* TODO handle answers array */
+        window.location.href = '/listings';
     }
 
     
@@ -72,7 +75,6 @@ function Questions() {
                 <input id="ans_4" input type="radio" name="carrier" value="ans_four" /> Disagree
                 <input id="ans_5" input type="radio" name="carrier" value="ans_five" /> Strongly Disagree
             </form>
-            <RadioButton/>
             <button type ="button" onClick={() => showLastQuestion()}>{getPreviousButtonText()}</button>
             <div class="divider"/>
             <button type ="button" onClick={() => showNextQuestion()}>{getNextButtonText()}</button>

@@ -2,6 +2,10 @@ import { refEqual } from '@firebase/firestore';
 import React, { useState } from 'react';
 import "./QuestionsSpecific.css";
 import RadioButton from "./RadioButton";
+import { useEffect } from 'react';
+//import {doc, getDoc} from 'firebase';
+import { doc, getDoc} from "firebase/firestore"; 
+import { getFirestore } from "firebase/firestore";
 
 function QuestionsSpecific() {
 
@@ -9,17 +13,45 @@ function QuestionsSpecific() {
     const [currentIndex, setCurrentIndex] = useState(0);
     const answers = [];
     const [response, setResponse] = useState('');
+    const [question1, setQuestion1] = useState('');
+    const [question2, setQuestion2] = useState('');
+    const [question3, setQuestion3] = useState('');
 
     const handleResponseInput = event => {
         setResponse(event.target.value);
     }
 
+    useEffect(() => {
+        //alert("Working?")
+        getQ();
+      })
+
+    const getQ = () => {
+
+        //alert("Working 2")
+
+        const docSnap = getDoc(doc(getFirestore(), "Question_for_listings", "Job1")).then(docSnap => {
+       // alert(docRef)
+       // const docSnap = getDoc(docRef);
+        //alert(docSnap.data())
+        //alert(docSnap.data()['Q1'])
+        setQuestion1(docSnap.data()['Q1'])
+        setQuestion2(docSnap.data()['Q2'])
+        setQuestion3(docSnap.data()['Q3'])
+         //if (docSnap.exists()) {
+        //alert("Document data:", docSnap.data());
+         //} else {
+         // doc.data() will be undefined in this case
+         //console.log("No such document!");
+        })
+     
+ }
+
+
     const questions = [
-        "Work hands-on with objects, machines, tools, plants, or animals; Work and play outside; Use your physical or athletic abilities",
-        "Observe, learn, analyse, evaluate, or solve problems; Question and explore physical, biological, or cultural happenings",
-        "Express yourself creatively; Use imagination or intuition; Feel free to be inventive without limits",
-        "Inform, enlighten, help, teach, counsel, or cure people; Use your skills with words to serve people",
-        "Influence, persuade, lead, or manage; Reach your personal or organisational goals"
+        question1,
+        question2,
+        question3
     ];
 
     const showLastQuestion = () => {
@@ -30,7 +62,9 @@ function QuestionsSpecific() {
     }
     
     const showNextQuestion = () => {
+
         if (currentIndex === 2) {
+            confirmAnswer();
             return;
         }
         setCurrentIndex(currentIndex+1);
@@ -55,6 +89,7 @@ function QuestionsSpecific() {
     }
 
     const confirmAnswer = () => {
+        window.location.href = '/showEmployer';
         /* TODO handle answers array */
     }
 
@@ -70,7 +105,6 @@ function QuestionsSpecific() {
         </div>
             
         <div class="questionBox">
-            <h3>You will..</h3>
             <h2>{questions[currentIndex]}</h2>
             
             <label>Response:</label>
