@@ -8,22 +8,27 @@
     transform:translate(-50%, -30%)
 }
 
-.row {
+.greyRow {
+    padding: 5px;
     background-color: rgb(230, 230, 230);
 }
 
-.button {
-    padding:10px;
+.whiteRow {
+    padding: 5px;
 }
 
-.signupboxes {
-    border-style:ridge;
-    margin-top:10px;
-    margin-bottom:50px;
+.button {
+    padding:5px;
 }
+
 
 .divider{
     width:5px;
     height:auto;
     display:inline-block;
+}
+
+.scrollable{
+    overflow-y:scroll;
+    height:max-content
 }
