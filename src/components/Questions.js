@@ -3,7 +3,8 @@ import "./Questions.css";
 
 function Questions() {
 
-    const [currentIndex, setCurrentIndex] = useState(4);
+    const [currentIndex, setCurrentIndex] = useState(0);
+    const [isChecked, setIsChecked] = useState(false);
 
 
     const questions = [
@@ -15,35 +16,43 @@ function Questions() {
     ];
 
     const showLastQuestion = () => {
-        if (currentIndex == 0) {
+        if (currentIndex === 0) {
             return;
         }
         setCurrentIndex(currentIndex-1)
+        clearRadioButtons();
+    }
+
+    const clearRadioButtons = () => {
+        for (var i = 0; i < 5; i++) {
+            const element = document.getElementById("ans_" + i.toString());
+            // set checked of this element to false
+        }
     }
     
     const showNextQuestion = () => {
-        if (currentIndex == 4) {
+        if (currentIndex === 4) {
             return;
         }
         setCurrentIndex(currentIndex+1)
+        clearRadioButtons();
     }
 
     const getPreviousButtonText = () => {
-        if (currentIndex == 0) {
+        if (currentIndex === 0) {
             return "Exit";
         }
         return "Previous Question";
     }
 
     const getNextButtonText = () => {
-        if (currentIndex == 4) {
+        if (currentIndex === 4) {
             return "Submit";
         }
         return "Next Question";
     }
 
     const getProgress = () => {
-
         return ((currentIndex+1)*20).toString();
     }
 
@@ -51,7 +60,7 @@ function Questions() {
     return (
 
         <div class="container">
-            <img src="https://cognisess.com/wp-content/uploads/2021/07/189.png"/>
+        <img src="https://cognisess.com/wp-content/uploads/2021/07/189.png"/>
         
         <div class="progressBox">
                 <progress id="progress_bar" value={getProgress()} max="100"></progress>

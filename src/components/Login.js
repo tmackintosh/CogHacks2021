@@ -9,6 +9,7 @@ function Login() {
         <>
         <div class="container">
         <img src="https://cognisess.com/wp-content/uploads/2021/07/189.png"/>
+
         <div class="signupboxes">
             <h1><i>sign up</i></h1>
 
@@ -19,7 +20,7 @@ function Login() {
             <label>Email Address:</label><input></input><br/>
 
             <div class="row">
-                <label>Password:</label><input></input><br/>
+                <label>Password:</label><input type="password"></input><br/>
             </div>
 
             <label>Postcode:</label><input></input><br/>
@@ -39,7 +40,7 @@ function Login() {
             <label>Email Address:</label><input></input><br/>
 
             <div class="row">
-                <label>Password:</label><input></input><br/>
+                <label>Password:</label><input type="password"></input><br/>
             </div>
 
             <div class="button">
