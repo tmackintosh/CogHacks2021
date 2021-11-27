@@ -1,5 +1,5 @@
 import React from "react";
-import Job_listings from "../JobListings.js";
+import JobListings from "../JobListings.js";
 
 function Job_listings_page() {
 
