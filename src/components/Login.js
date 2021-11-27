@@ -5,6 +5,7 @@ import { initializeApp } from "firebase/app";
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
 
 function Login() {
@@ -54,11 +55,29 @@ const signUp = () => {
         .catch((error) => {
             const errorCode = error.code;
             const errorMessage = error.message;
-            alert(errorMessage + password)
+            //alert(errorMessage + password)
             // ..
         
         });
     //}   
+}
+
+const signIn = () => {
+
+    const auth = getAuth();
+signInWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in 
+    const user = userCredential.user;
+    alert("Signed in: Signed in")
+    // ...
+  })
+  .catch((error) => {
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    alert("Sign in: " + errorMessage)
+  });
+
 }
     
     
@@ -110,7 +129,7 @@ const signUp = () => {
                 </div>
 
                 <div class="button">
-                    <button>Log In</button>
+                    <button onClick={signIn()}>Log In</button>
                 </div>
             </div>
         </div>
