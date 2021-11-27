@@ -124,6 +124,7 @@ function Login() {
         // Signed in 
         const user = userCredential.user;
         alert("Signed in: Signed in")
+        nextPage();
         // ...
     })
     .catch((error) => {
