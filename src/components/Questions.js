@@ -4,6 +4,8 @@ import RadioButton from "./RadioButton";
 
 function Questions() {
 
+    
+
     const [currentIndex, setCurrentIndex] = useState(0);
     const answers = [];
 
@@ -23,7 +25,7 @@ function Questions() {
     }
     
     const showNextQuestion = () => {
-        if (currentIndex === 4) {
+        if (currentIndex === 2) {
             return;
         }
         setCurrentIndex(currentIndex+1);
@@ -37,14 +39,14 @@ function Questions() {
     }
 
     const getNextButtonText = () => {
-        if (currentIndex === 4) {
+        if (currentIndex === 2) {
             return "Submit";
         }
         return "Next Question";
     }
 
     const getProgress = () => {
-        return ((currentIndex+1)*20).toString();
+        return ((currentIndex+1)*33).toString();
     }
 
     const confirmAnswer = () => {
@@ -59,7 +61,7 @@ function Questions() {
         
         <div class="progressBox">
                 <progress id="progress_bar" value={getProgress()} max="100"></progress>
-                <h3>{currentIndex+1}/5</h3>
+                <h3>{currentIndex+1}/3</h3>
         </div>
             
         <div class="questionBox">

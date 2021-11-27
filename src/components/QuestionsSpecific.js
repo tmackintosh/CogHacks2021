@@ -1,11 +1,18 @@
+import { refEqual } from '@firebase/firestore';
 import React, { useState } from 'react';
-import "./Questions.css";
+import "./QuestionsSpecific.css";
 import RadioButton from "./RadioButton";
 
-function Questions() {
+function QuestionsSpecific() {
+
 
     const [currentIndex, setCurrentIndex] = useState(0);
     const answers = [];
+    const [response, setResponse] = useState('');
+
+    const handleResponseInput = event => {
+        setResponse(event.target.value);
+    }
 
     const questions = [
         "Work hands-on with objects, machines, tools, plants, or animals; Work and play outside; Use your physical or athletic abilities",
@@ -23,7 +30,7 @@ function Questions() {
     }
     
     const showNextQuestion = () => {
-        if (currentIndex === 4) {
+        if (currentIndex === 2) {
             return;
         }
         setCurrentIndex(currentIndex+1);
@@ -37,14 +44,14 @@ function Questions() {
     }
 
     const getNextButtonText = () => {
-        if (currentIndex === 4) {
+        if (currentIndex === 2) {
             return "Submit";
         }
         return "Next Question";
     }
 
     const getProgress = () => {
-        return ((currentIndex+1)*20).toString();
+        return ((currentIndex+1)*(100/3)).toString();
     }
 
     const confirmAnswer = () => {
@@ -59,20 +66,21 @@ function Questions() {
         
         <div class="progressBox">
                 <progress id="progress_bar" value={getProgress()} max="100"></progress>
-                <h3>{currentIndex+1}/5</h3>
+                <h3>{currentIndex+1}/3</h3>
         </div>
             
         <div class="questionBox">
             <h3>You will..</h3>
             <h2>{questions[currentIndex]}</h2>
-            <form method="post">
-                <input id="ans_1" checked={this.state.selectedOption === "option1"} onChange={this.handleOptionChange} input type="radio" name="carrier" value="ans_one" /> Strongly Agree
-                <input id="ans_2" checked={this.state.selectedOption === "option2"} onChange={this.handleOptionChange} input type="radio" name="carrier" value="ans_two" /> Agree
-                <input id="ans_3" checked={this.state.selectedOption === "option3"} onChange={this.handleOptionChange} input type="radio" name="carrier" value="ans_three" /> Neutral
-                <input id="ans_4" checked={this.state.selectedOption === "option4"} onChange={this.handleOptionChange} input type="radio" name="carrier" value="ans_four" /> Disagree
-                <input id="ans_5" checked={this.state.selectedOption === "option5"} onChange={this.handleOptionChange} input type="radio" name="carrier" value="ans_five" /> Strongly Disagree
-            </form>
-            <RadioButton/>
+            
+            <label>Response:</label>
+            <input  
+            type={response} id="response" onChange={handleResponseInput}
+            // onChange={e => setPassword(e.detail.value)}
+            >
+            </input> 
+            <br/>
+            
             <button type ="button" onClick={() => showLastQuestion()}>{getPreviousButtonText()}</button>
             <div class="divider"/>
             <button type ="button" onClick={() => showNextQuestion()}>{getNextButtonText()}</button>
@@ -82,4 +90,4 @@ function Questions() {
     )
 }
 
-export default Questions;
+export default QuestionsSpecific;
