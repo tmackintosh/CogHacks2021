@@ -4,8 +4,6 @@ import RadioButton from "./RadioButton";
 
 function Questions() {
 
-    
-
     const [currentIndex, setCurrentIndex] = useState(0);
     const answers = [];
 
@@ -27,6 +25,7 @@ function Questions() {
     const showNextQuestion = () => {
         if (currentIndex === 4) {
             confirmAnswer();
+
             return;
         }
         setCurrentIndex(currentIndex+1);
