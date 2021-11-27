@@ -60,6 +60,10 @@ function Login() {
         setEdu_level(event.target.value);
     }
 
+    const nextPage = () => {
+        window.location.href = '/questions';
+    }
+
     const handleEmailInput2 = event => {
         setEmail2(event.target.value);
     }
@@ -89,7 +93,12 @@ function Login() {
                      email: email,
                      postcode: postcode,
                      edu_level: edu_level
-                    });
+                    }).then(() => {
+                        //setLoading(false);
+                        nextPage();      
+                      }).catch(err => {
+                        //setLoading(false);
+                      })
 
                 // getFirestore().collection('cities').doc('BJ').set({
                 //     capital: "TESt"
