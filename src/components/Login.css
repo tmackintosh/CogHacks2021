@@ -1,0 +1,23 @@
+.signupbox {
+    border-style:ridge;
+    text-align:center;
+}
+
+label{
+    display:inline-flex;
+    width:250px;
+    text-align:right;
+}
+
+input {
+    margin: 10px;
+}
+
+.row {
+    background-color: rgb(230, 230, 230);
+}
+
+img {
+    height: 20%;
+    width: 20%;
+}
