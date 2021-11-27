@@ -1,7 +1,8 @@
 import React from 'react';
 
 const JobItem = props => {
-    let info = [
+    var info = window.parent.info;
+    info = [
         props.info.jobPosition,
         props.info.salary,
         props.info.location,

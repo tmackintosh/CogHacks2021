@@ -4,8 +4,6 @@ import RadioButton from "./RadioButton";
 
 function Questions() {
 
-    
-
     const [currentIndex, setCurrentIndex] = useState(0);
     const answers = [];
 
@@ -25,7 +23,7 @@ function Questions() {
     }
     
     const showNextQuestion = () => {
-        if (currentIndex === 2) {
+        if (currentIndex === 4) {
             return;
         }
         setCurrentIndex(currentIndex+1);
@@ -39,14 +37,14 @@ function Questions() {
     }
 
     const getNextButtonText = () => {
-        if (currentIndex === 2) {
+        if (currentIndex === 4) {
             return "Submit";
         }
         return "Next Question";
     }
 
     const getProgress = () => {
-        return ((currentIndex+1)*33).toString();
+        return ((currentIndex+1)*20).toString();
     }
 
     const confirmAnswer = () => {
@@ -61,18 +59,18 @@ function Questions() {
         
         <div class="progressBox">
                 <progress id="progress_bar" value={getProgress()} max="100"></progress>
-                <h3>{currentIndex+1}/3</h3>
+                <h3>{currentIndex+1}/5</h3>
         </div>
             
         <div class="questionBox">
             <h3>You will..</h3>
             <h2>{questions[currentIndex]}</h2>
             <form method="post">
-                <input id="ans_1" checked={this.state.selectedOption === "option1"} onChange={this.handleOptionChange} input type="radio" name="carrier" value="ans_one" /> Strongly Agree
-                <input id="ans_2" checked={this.state.selectedOption === "option2"} onChange={this.handleOptionChange} input type="radio" name="carrier" value="ans_two" /> Agree
-                <input id="ans_3" checked={this.state.selectedOption === "option3"} onChange={this.handleOptionChange} input type="radio" name="carrier" value="ans_three" /> Neutral
-                <input id="ans_4" checked={this.state.selectedOption === "option4"} onChange={this.handleOptionChange} input type="radio" name="carrier" value="ans_four" /> Disagree
-                <input id="ans_5" checked={this.state.selectedOption === "option5"} onChange={this.handleOptionChange} input type="radio" name="carrier" value="ans_five" /> Strongly Disagree
+                <input id="ans_1" input type="radio" name="carrier" value="ans_one" /> Strongly Agree
+                <input id="ans_2" input type="radio" name="carrier" value="ans_two" /> Agree
+                <input id="ans_3" input type="radio" name="carrier" value="ans_three" /> Neutral
+                <input id="ans_4" input type="radio" name="carrier" value="ans_four" /> Disagree
+                <input id="ans_5" input type="radio" name="carrier" value="ans_five" /> Strongly Disagree
             </form>
             <RadioButton/>
             <button type ="button" onClick={() => showLastQuestion()}>{getPreviousButtonText()}</button>
