@@ -7,10 +7,11 @@ import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
-import { set } from "firebase/firestore";
-import { doc, setDoc, db } from "firebase/firestore"; 
-import firestore from 'firebase';
-import firebase from 'firebase';
+// import { set } from "firebase/firestore";
+import { doc, setDoc} from "firebase/firestore"; 
+import { getFirestore } from "firebase/firestore"
+//import firestore from 'firebase';
+// import firebase from 'firebase';
 
 function Login() {
 
@@ -30,6 +31,9 @@ function Login() {
 
     const [password, setPassword] = useState('');
     const [email, setEmail] = useState('');
+    const [name, setName] = useState('');
+    const [postcode, setPostcode] = useState('');
+    const [edu_level, setEdu_level] = useState('');
 
     const [password2, setPassword2] = useState('');
     const [email2, setEmail2] = useState('');
@@ -42,6 +46,18 @@ function Login() {
 
     const handleEmailInput = event => {
         setEmail(event.target.value);
+    }
+
+    const handleNameInput = event => {
+        setName(event.target.value);
+    }
+
+    const handlePostcodeInput = event => {
+        setPostcode(event.target.value);
+    }
+
+    const handleEduInput = event => {
+        setEdu_level(event.target.value);
     }
 
     const handleEmailInput2 = event => {
@@ -68,10 +84,17 @@ function Login() {
                 // ...
                 alert("Signed In")
 
-                firebase.firestore().collection('cities').doc('BJ').set({
-                    capital: "TESt"
-                  })
+                 setDoc(doc(getFirestore(), "users", user.uid), {
+                     name: name,
+                     email: email,
+                     postcode: postcode,
+                     edu_level: edu_level
+                    });
 
+                // getFirestore().collection('cities').doc('BJ').set({
+                //     capital: "TESt"
+                //    })
+                  alert("Did this run?")
 
             })
             .catch((error) => {
@@ -111,10 +134,15 @@ function Login() {
                 {/* <form onSubmit={signUp}>  */}
                 
                 <div class="row">
-                    <label class="row">Name:</label><input></input><br/>
+                    <label class="row">Name:</label>
+                    <input
+                    value={name}
+                    onChange={handleNameInput}
+                    ></input><br/>
                 </div>
 
-                <label>Email Address:</label><input id="email" value={email} onChange={handleEmailInput}></input><br/>
+                <label>Email Address:</label>
+                <input id="email" value={email} onChange={handleEmailInput}></input><br/>
                 
                 <div class="row">
                     <label>Password:</label>
@@ -126,10 +154,18 @@ function Login() {
                     <br/>
                 </div>
 
-                <label>Postcode:</label><input></input><br/>
+                <label>Postcode:</label>
+                <input
+                value={postcode}
+                onChange = {handlePostcodeInput}
+                ></input><br/>
 
                 <div class="row">
-                    <label>Highest level of education:</label><input></input>
+                    <label>Highest level of education:</label>
+                    <input
+                    value={edu_level}
+                    onChange = {handleEduInput}
+                    ></input>
                 </div>
 
                 <div class="button">
