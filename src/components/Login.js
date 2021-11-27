@@ -7,6 +7,10 @@ import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { signInWithEmailAndPassword } from "firebase/auth";
 import { useState } from 'react';
+import { set } from "firebase/firestore";
+import { doc, setDoc, db } from "firebase/firestore"; 
+import firestore from 'firebase';
+import firebase from 'firebase';
 
 function Login() {
 
@@ -53,7 +57,7 @@ function Login() {
         signUp();
     }
 
-    const signUp = () => {
+    const signUp = async() => {
         //pressedSignUp();
         const auth = getAuth();
         //if (signingUp === true) {
@@ -63,6 +67,12 @@ function Login() {
                 const user = userCredential.user;
                 // ...
                 alert("Signed In")
+
+                firebase.firestore().collection('cities').doc('BJ').set({
+                    capital: "TESt"
+                  })
+
+
             })
             .catch((error) => {
                 const errorCode = error.code;
