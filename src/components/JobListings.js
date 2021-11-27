@@ -2,6 +2,10 @@ import React, { useState } from 'react';
 import "./Job_listings.css";
 import JobItem from './JobItem';
 
+const clickJob = event => {
+    console.log("Hello");
+}
+
 const getAllJobListings = () => {
     var jobListingsSize = 1; /* TODO: Get all matched listings*/
 
@@ -13,7 +17,7 @@ const getAllJobListings = () => {
         return (
         JobItemsArray.map( (item) =>
             <React.Fragment>
-                <JobItem onClick={() => openJobListing(item)} info={item} />         
+                <JobItem onClick={clickJob} info={item} />         
             </React.Fragment>
             )
         );
