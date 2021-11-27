@@ -1,11 +1,11 @@
 import React from "react";
-import Job_listings from "../Job_listings";
+import JobListings from "../JobListings";
 
 function Job_listings_page() {
 
     return (
         <>
-            <Job_listings/>
+            <JobListings/>
         </>
     )
 
