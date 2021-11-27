@@ -80,6 +80,21 @@ createUserWithEmailAndPassword(auth, email, password)
                 {/* </form> */}
 
             </div>
+            
+
+            <div class="signupboxes">
+                <h1><i>log in</i></h1>
+
+                <label>Email Address:</label><input></input><br/>
+
+                <div class="row">
+                    <label>Password:</label><input></input><br/>
+                </div>
+
+                <div class="button">
+                    <button>Log In</button>
+                </div>
+            </div>
         </div>
     )
 }

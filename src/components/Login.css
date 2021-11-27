@@ -1,0 +1,40 @@
+.container {
+    text-align:center;
+    font-family: sans-serif;
+    position:absolute;
+    top:25%;
+    left:50%;
+    transform:translate(-50%, -30%)
+}
+
+.signupboxes {
+    border-style:ridge;
+    margin-top:10px;
+    margin-bottom:50px;
+}
+
+label{
+    display:inline-flex;
+    width:250px;
+    text-align:right;
+}
+
+input {
+    margin: 10px;
+}
+
+.row {
+    background-color: rgb(230, 230, 230);
+}
+
+img {
+    height: 40%;
+    width: 40%;
+    display:block;
+    margin-left:auto;
+    margin-right:auto;
+}
+
+.button {
+    padding:10px;
+}
