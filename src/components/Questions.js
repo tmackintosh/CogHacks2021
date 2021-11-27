@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import "./Questions.css";
 
 function Questions() {
-
+    
     const [currentIndex, setCurrentIndex] = useState(4);
-
+    const answers = [];
 
     const questions = [
         "Work hands-on with objects, machines, tools, plants, or animals; Work and play outside; Use your physical or athletic abilities",
